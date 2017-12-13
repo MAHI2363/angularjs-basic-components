@@ -19,8 +19,34 @@ angular.module('myapp')
 angular.module('myapp')
     .component('myButton', {
         bindings: {
-            myTitle: '@'
+            myTitle: '@',
+            onBtnClick: '&',
 
         },
-        templateUrl: 'mybutton.component.html'
+        templateUrl: 'mybutton.component.html',
+        controller:function(){
+            this.onClick = function(){
+                console.log('inside component');
+                this.onBtnClick();
+            };
+        }
     });
+
+    angular.module('myapp')
+    .component('mySlideshow', {
+        bindings: {
+            myTitle: '@',
+            onBtnClick: '&',
+
+        },
+        templateUrl: 'myslideshow.component.html',
+        controller:function(){
+            this.onClick = function(){
+                console.log('inside component');
+                this.onBtnClick();
+            };
+        }
+    });
+
+
+    
